@@ -1,0 +1,26 @@
+# fixjour 2 (to be renamed)
+
+A rewrite I don't need to write.
+
+The builder definitions are more like factory girl now.
+
+## Usage
+
+    require 'fixjour'
+    
+    Fixjour do
+      define User do |user|
+        user.name = "Pat"
+      end
+    end
+
+Then include Fixjour where you want the new user methods:
+
+    include Fixjour
+    
+    new_user(:name => "Pat")
+    create_user(:name => "Pat")
+
+That's it for now.
+
+(c) Copyright 2011 Pat Nakajima. All Rights Reserved. 
