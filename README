@@ -14,7 +14,7 @@ The builder definitions are more like factory girl now.
       end
     end
 
-Then include Fixjour where you want the new user methods:
+The methods generated are the same old Fixjour methods:
 
     include Fixjour
     
