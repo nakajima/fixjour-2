@@ -1,18 +1,21 @@
 module Fixjour
   class Builder
-    def initialize(model, block)
-      @model, @block = model, block
+    def initialize(model, options, &block)
+      @model, @options, @block = model, options, block
     end
 
     def define
-      model, block = @model, @block
-      Fixjour.module_eval do
-        klass_name = model.model_name.singular
+      block = @block
+      klass = find_class
+      klass_name = klass.model_name.singular
 
+      Fixjour.module_eval do
         define_method("new_" + klass_name) do |*overrides|
-          instance = model.new
+          instance = klass.new
           block.call(instance)
-          (overrides.first || {}).each { |key, val| instance.send("#{key}=", val) }
+          overrides.first && overrides.first.each do |key, val|
+            instance.send("#{key}=", val)
+          end
           instance
         end
 
@@ -22,6 +25,14 @@ module Fixjour
           instance
         end
       end
+    end
+
+    private
+
+    def find_class
+      @options[:class] || @model.is_a?(Symbol) ?
+        @model.to_s.classify.constantize :
+        @model
     end
   end
 end

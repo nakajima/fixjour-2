@@ -12,6 +12,11 @@ The builder definitions are more like factory girl now.
       define User do |user|
         user.name = "Pat"
       end
+      
+      define Article do |article|
+        article.user = new_user
+        article.title = "This is a good one"
+      end
     end
 
 The methods generated are the same old Fixjour methods:
@@ -22,5 +27,31 @@ The methods generated are the same old Fixjour methods:
     create_user(:name => "Pat")
 
 That's it for now.
+
+## What's New
+
+I ripped out a bunch of stuff. Here are some things I don't need:
+
+### Overrides and `process`
+
+The overrides hash in Fixjour was confusing to pretty much everybody I explained
+it to, so it's gone now. PEACE.
+
+### valid_*_attributes
+
+This was useful for controller tests. Controller tests are no longer useful
+though. I like acceptance tests now. Hopefully you do too.
+
+### attr_protected attributes
+
+They just work now. Don't worry about it.
+
+### Fixjour.verify!
+
+It's gone now. Write tests for your builders and you're good to go.
+
+## TODO
+
+* counters (or sequences in Factory girl parlance)
 
 (c) Copyright 2011 Pat Nakajima. All Rights Reserved. 

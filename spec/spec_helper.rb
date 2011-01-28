@@ -8,3 +8,18 @@ build_model :users do
   integer :age
   attr_protected :age
 end
+
+build_model :articles do
+  integer :user_id
+  belongs_to :user
+end
+
+build_model :comments do
+  string :text
+  integer :article_id
+  belongs_to :article
+end
+
+class Article
+  Comment = ::Comment
+end
