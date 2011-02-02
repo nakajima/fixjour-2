@@ -12,8 +12,9 @@ describe "Fixjour Builders" do
       define :article do |article|
         article.user = new_user(:name => "Pat")
       end
-      
+
       define :comment, :class => Article::Comment do |comment|
+        comment.text = "comment #{counter(:comment)}"
         comment.article = new_article
       end
     end
@@ -42,8 +43,13 @@ describe "Fixjour Builders" do
     article = new_article
     article.user.should_not be_nil
     article.user.name.should == "Pat"
-    
+
     # It works with namespaces
     comment = new_comment
+
+    # It works with counters
+    first_comment = new_comment
+    second_comment = new_comment
+    first_comment.text.should_not == second_comment.text
   end
 end

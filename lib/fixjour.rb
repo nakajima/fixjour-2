@@ -1,7 +1,8 @@
 $LOAD_PATH << File.dirname(__FILE__)
 
-require 'fixjour/dsl'
+require 'fixjour/counter'
 require 'fixjour/builder'
+require 'fixjour/dsl'
 
 module Fixjour
   def self.evaluate(&block)
