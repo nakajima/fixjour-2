@@ -1,0 +1,34 @@
+GEM
+  remote: http://rubygems.org/
+  specs:
+    activemodel (3.2.0)
+      activesupport (= 3.2.0)
+      builder (~> 3.0.0)
+    activerecord (3.2.0)
+      activemodel (= 3.2.0)
+      activesupport (= 3.2.0)
+      arel (~> 3.0.0)
+      tzinfo (~> 0.3.29)
+    activesupport (3.2.0)
+      i18n (~> 0.6)
+      multi_json (~> 1.0)
+    acts_as_fu (0.0.8)
+      activerecord
+      sqlite3
+    arel (3.0.0)
+    builder (3.0.0)
+    factory_girl (2.5.0)
+      activesupport
+    fixjour-2 (0.0.3)
+    i18n (0.6.0)
+    multi_json (1.0.4)
+    sqlite3 (1.3.5)
+    tzinfo (0.3.31)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  acts_as_fu
+  factory_girl
+  fixjour-2

@@ -1,0 +1,5 @@
+source :rubygems
+
+gem "fixjour-2"
+gem "factory_girl"
+gem "acts_as_fu"
