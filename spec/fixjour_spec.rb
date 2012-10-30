@@ -17,6 +17,11 @@ describe "Fixjour Builders" do
         comment.text = "comment #{counter(:comment)}"
         comment.article = new_article
       end
+
+      define :content, :class => Article::Comment do |comment|
+        comment.text = "comment #{counter(:comment)}"
+        comment.article = new_article
+      end
     end
 
     user = new_user
@@ -46,6 +51,9 @@ describe "Fixjour Builders" do
 
     # It works with namespaces
     comment = new_comment
+
+    # It works with a symbol representing a non-existent class
+    new_content
 
     # It works with counters
     first_comment = new_comment
