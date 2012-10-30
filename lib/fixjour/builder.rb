@@ -7,7 +7,7 @@ module Fixjour
     def define
       block = @block
       klass = find_class
-      klass_name = klass.model_name.singular
+      klass_name = find_class_name
 
       Fixjour.module_eval do
         define_method("new_" + klass_name) do |*overrides|
@@ -30,9 +30,14 @@ module Fixjour
     private
 
     def find_class
-      @options[:class] || @model.is_a?(Symbol) ?
+      @options[:class] || (@model.is_a?(Symbol) ?
         @model.to_s.classify.constantize :
-        @model
+        @model)
+    end
+
+    def find_class_name
+      return @model.to_s if @model.is_a?(Symbol) && @options[:class]
+      find_class.model_name.singular
     end
   end
 end
