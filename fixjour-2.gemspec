@@ -8,7 +8,7 @@ Gem::Specification.new do |s|
   s.authors = ["Pat Nakajima"]
   s.date = %q{2011-01-27}
   s.email = %q{patnakajima@gmail.com}
-  s.files = ["Gemfile", "Gemfile.lock", "README", "lib/fixjour.rb", "lib/fixjour/builder.rb", "lib/fixjour/dsl.rb", "spec/fixjour_spec.rb", "spec/spec_helper.rb"]
+  s.files = ["Gemfile", "Gemfile.lock", "README", "lib/fixjour.rb", "lib/fixjour/builder.rb", "lib/fixjour/dsl.rb", "lib/fixjour/counter.rb", "spec/fixjour_spec.rb", "spec/spec_helper.rb"]
   s.require_paths = ["lib"]
   s.rubygems_version = %q{1.4.1}
   s.summary = %q{Fixjour Again}
